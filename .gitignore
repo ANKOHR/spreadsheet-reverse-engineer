@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+dist/
+build/
+sre-prompt.txt
+sre-launch.py
+sre-codex.log
+*.log
+generated/
