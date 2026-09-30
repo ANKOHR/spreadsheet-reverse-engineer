@@ -4,6 +4,10 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from zipfile import BadZipFile
+from xml.etree.ElementTree import ParseError
+
+from openpyxl.utils.exceptions import InvalidFileException
 
 from .analysis import BANNER, analyze
 from .fixtures import generate
@@ -74,7 +78,7 @@ def main(argv=None):
         else:
             sys.stdout.write(rendered)
         return 0
-    except (OSError, ValueError, KeyError) as exc:
+    except (OSError, ValueError, KeyError, BadZipFile, InvalidFileException, ParseError) as exc:
         print(f"sre: {exc}", file=sys.stderr)
         return 1
 
